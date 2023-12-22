@@ -4,23 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tsk11"
+        
         mc:Ignorable="d"
         Height="250" Width="400">
     <Window.Resources>
-        <local:ToUpperValueConverter x:Key="ToUpperValueConverter" />
+        <local:ToUpperCaseConverter x:Key="ToUpperCaseConverter" />
     </Window.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
         <TextBlock Text="Введите текст"
                    Width="Auto" Height="Auto"
+                   Margin="5"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         <TextBox Width="100" Height="20" 
+                 Margin="5"
                  x:Name="box"/>
-        <TextBlock VerticalAlignment="Center"
-                   HorizontalAlignment="Center" 
-                   Text="{Binding Path=Name, Converter={StaticResource ToUpperValueConverter}}" />
+            <Button x:Name="Btn"
+                    Content="Конвертировать"
+                    Margin="5"
+                    Click="Btn_Click"/>
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Margin="5"
+                       Width="90" Height="Auto"
+                       Background="AliceBlue"
+                       Text="{Binding SomeProperty, Converter={StaticResource ToUpperCaseConverter}}" />
         </StackPanel>
     </Grid>
 </Window>

@@ -22,16 +22,38 @@ namespace Tsk11
         {
             InitializeComponent();
         }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 
-    public class ToUpperValueConverter : IValueConverter
+    //public class ToUpperValueConverter : IValueConverter
+    //{
+    //    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    //    {
+    //        return value.ToString().ToUpper();
+    //    }
+
+    //    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
+
+    public class ToUpperCaseConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value.ToString().ToUpper();
+            if (value is string str)
+            {
+                return str.ToUpper();
+            }
+            return value;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
